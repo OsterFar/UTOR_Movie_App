@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/screens/ViewAll.dart';
+import 'package:movieapp/screens/ViewBest.dart';
+import 'package:movieapp/screens/ViewTopRated.dart';
 
 import '../model/movie.dart';
 
@@ -36,7 +39,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   TextButton(
                     child: Text('View All'),
-                    onPressed: () {},
+                    onPressed: () {
+                      _navigateToViewALL(context);
+                    },
                   ),
                 ],
               ),
@@ -66,7 +71,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   TextButton(
                     child: Text('View All'),
-                    onPressed: () {},
+                    onPressed: () {
+                      _navigateToViewBest(context);
+                    },
                   ),
                 ],
               ),
@@ -97,7 +104,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   FlatButton(
                     child: Text('View All'),
-                    onPressed: () {},
+                    onPressed: () {
+                      _navigateToViewtop(context);
+                    },
                   ),
                 ],
               ),
@@ -114,5 +123,20 @@ class DashboardScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _navigateToViewALL(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ViewAll()));
+  }
+
+  void _navigateToViewBest(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ViewBest()));
+  }
+
+  void _navigateToViewtop(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const ViewTopRated()));
   }
 }
