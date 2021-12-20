@@ -1,3 +1,8 @@
+import 'dart:convert';
+
+List<Movie> productFromJson(String str) =>
+    List<Movie>.from(json.decode(str).map((x) => Movie.fromJson(x)));
+
 class Movie {
   final String id;
   final String title;
@@ -16,6 +21,15 @@ class Movie {
     required this.year,
     required this.duration,
   });
+
+  static fromJson(Map<String, dynamic> json) => Movie(
+      id: json["id"],
+      title: json["title"],
+      imageUrl: json["imageUrl"],
+      description: json["description"],
+      rating: json["rating"],
+      year: json["year"],
+      duration: json["duration"]);
 }
 
 final movieList = [
